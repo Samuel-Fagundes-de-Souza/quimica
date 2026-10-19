@@ -1,0 +1,271 @@
+:root {
+  --fundo: #5f6a85;
+  --barra: #3a3d4a;
+  --cartao: #3b3d4b;
+  --texto: #f2f3f7;
+  --suave: #b9bdcc;
+  --destaque: #c9d3f5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--texto);
+  font-family: "Open Sans", "Segoe UI", system-ui, sans-serif;
+  line-height: 1.6;
+  background-color: var(--fundo);
+  background-image:
+    linear-gradient(rgba(95, 106, 133, 0.75), rgba(95, 106, 133, 0.75)),
+    url("../images/fundo.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.topo {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.6rem 1.5rem;
+  background: var(--barra);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+.topo nav {
+  display: flex;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.topo nav a {
+  color: var(--texto);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.topo a:hover,
+.topo a:focus-visible {
+  color: var(--destaque);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--destaque);
+  outline-offset: 3px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  align-items: start;
+}
+
+.cartao {
+  background: var(--cartao);
+  padding: 1.5rem 1.75rem;
+}
+
+.principal h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  line-height: 1.2;
+}
+
+.autor {
+  margin: 0.25rem 0 1.5rem;
+  color: var(--suave);
+}
+
+section {
+  margin-top: 1.75rem;
+}
+
+h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.2rem;
+  color: var(--destaque);
+}
+
+p {
+  margin: 0 0 0.8rem;
+  max-width: 70ch;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 1.25rem;
+  margin: 0 0 0.8rem;
+}
+
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  max-width: 70ch;
+}
+
+a {
+  color: var(--destaque);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.equipe {
+  grid-column: 1 / -1;   /* ocupa a largura toda, abaixo dos outros dois cartões */
+}
+
+.equipe h2:not(:first-child) {
+  margin-top: 1.5rem;
+}
+
+.imagens {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0.5rem 0 1.25rem;
+}
+
+.imagens figure {
+  margin: 0;
+}
+
+.imagens img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  background: var(--fundo);
+}
+
+.imagens figcaption {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--suave);
+}
+
+.lateral {
+  position: sticky;
+  top: 4.5rem;
+  text-align: center;
+}
+
+.quadro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  background: var(--fundo);
+}
+
+.num {
+  align-self: flex-start;
+  padding-left: 0.6rem;
+  font-size: 1.1rem;
+}
+
+.simbolo {
+  font-size: 4.5rem;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.nome {
+  font-weight: 700;
+  margin-top: 0.3rem;
+}
+
+.camadas {
+  font-size: 0.8rem;
+  color: var(--texto);
+  opacity: 0.85;
+  margin-top: 0.3rem;
+}
+
+.massa {
+  margin: 1rem 0 0;
+  color: var(--suave);
+}
+
+.massa strong {
+  color: var(--texto);
+  font-size: 1.1rem;
+}
+
+.aluno {
+  grid-template-columns: minmax(0, 260px);  /* uma coluna só, com largura máxima */
+  justify-content: center;
+  text-align: center;
+}
+
+footer {
+  max-width: 1100px;
+  margin: 0 auto 2rem;
+  padding: 0 1.5rem;
+  color: var(--suave);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 720px) {
+  main {
+    grid-template-columns: 1fr;
+    margin-top: 1.25rem;
+    padding: 0 0.75rem;
+  }
+
+  .cartao {
+    padding: 1.25rem 1rem;
+  }
+
+  .lateral {
+    position: static;
+    order: -1;
+  }
+
+  dl {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  dd {
+    margin-bottom: 0.5rem;
+  }
+}
